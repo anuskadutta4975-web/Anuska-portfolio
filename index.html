@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anuska Dutta — Process Associate</title>
+<meta name="description" content="Anuska Dutta — Process Associate | Back Office Operations | Customer Service | CRM & Escalation Management">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF2F0;
+    --paper-raised:#F7FAF8;
+    --ink:#13201C;
+    --ink-soft:#4B5C56;
+    --line:#C7D2CC;
+    --teal:#1F6F5C;
+    --teal-deep:#154E42;
+    --amber:#C68A2E;
+    --amber-soft:#F1E2C4;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-attachment:fixed;
+    background-position:-1px -1px;
+  }
+
+  a{color:inherit;}
+
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- perforation divider ---------- */
+  .perf{
+    height:24px;
+    background-image:radial-gradient(circle, var(--paper) 3px, transparent 3.5px);
+    background-size:20px 20px;
+    background-position:center;
+    position:relative;
+  }
+  .perf::before{
+    content:"";
+    position:absolute;
+    top:50%;left:0;right:0;
+    border-top:1.5px dashed var(--line);
+    transform:translateY(-1px);
+  }
+
+  /* ---------- top bar ---------- */
+  header.topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(238,242,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:920px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+  }
+  .brand{
+    font-family:var(--font-mono);
+    font-size:13px;letter-spacing:0.06em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--teal);
+    box-shadow:0 0 0 0 rgba(31,111,92,0.5);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(31,111,92,0.45);}
+    70%{box-shadow:0 0 0 8px rgba(31,111,92,0);}
+    100%{box-shadow:0 0 0 0 rgba(31,111,92,0);}
+  }
+  nav{display:flex;gap:22px;flex-wrap:wrap;}
+  nav a{
+    font-family:var(--font-mono);
+    font-size:12px;letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s, border-color .15s;
+  }
+  nav a:hover{color:var(--teal-deep);border-color:var(--teal-deep);}
+
+  /* ---------- hero ticket ---------- */
+  .hero{padding:56px 0 8px;}
+  .ticket{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:10px;
+    box-shadow:0 1px 0 var(--line), 0 14px 30px -20px rgba(19,32,28,0.35);
+    overflow:hidden;
+  }
+  .ticket-meta{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    border-bottom:1px solid var(--line);
+  }
+  .ticket-meta div{
+    padding:12px 16px;
+    border-right:1px solid var(--line);
+  }
+  .ticket-meta div:last-child{border-right:none;}
+  .ticket-meta .label{color:var(--ink-soft);display:block;text-transform:uppercase;font-size:10px;margin-bottom:4px;}
+  .status-open{color:var(--teal-deep);font-weight:600;}
+  .status-open::before{content:"● ";}
+  .priority-high{color:var(--amber);font-weight:600;}
+
+  .ticket-body{padding:36px 32px 32px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:10px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(38px,7vw,64px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    margin-bottom:10px;
+  }
+  .role-line{
+    font-family:var(--font-body);
+    font-size:17px;
+    color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+  .role-line strong{color:var(--ink);font-weight:600;}
+
+  .summary{
+    font-size:15.5px;
+    color:var(--ink);
+    max-width:60ch;
+    margin-bottom:26px;
+  }
+  .summary .field-label{
+    font-family:var(--font-mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:8px;
+  }
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono);
+    font-size:12.5px;letter-spacing:0.04em;
+    text-decoration:none;
+    padding:11px 20px;
+    border-radius:6px;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{
+    background:var(--teal-deep);color:var(--paper-raised);
+    box-shadow:0 6px 16px -8px rgba(21,78,66,0.6);
+  }
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--line);
+  }
+
+  /* ---------- section headers ---------- */
+  section{padding:52px 0;}
+  .section-head{
+    display:flex;align-items:baseline;gap:14px;
+    margin-bottom:28px;
+  }
+  .section-tag{
+    font-family:var(--font-mono);
+    font-size:11px;letter-spacing:0.1em;
+    color:var(--paper-raised);
+    background:var(--teal-deep);
+    padding:4px 9px;border-radius:4px;
+    text-transform:uppercase;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:26px;font-weight:600;
+  }
+
+  /* ---------- experience cards ---------- */
+  .job-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:18px;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(14px);
+    animation:reveal .6s ease forwards;
+  }
+  .job-card:nth-child(1){animation-delay:.05s;}
+  .job-card:nth-child(2){animation-delay:.15s;}
+  .job-card:nth-child(3){animation-delay:.25s;}
+  @keyframes reveal{to{opacity:1;transform:translateY(0);}}
+
+  .job-head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:16px;flex-wrap:wrap;
+    padding:18px 22px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(31,111,92,0.04), transparent);
+  }
+  .job-id{
+    font-family:var(--font-mono);
+    font-size:11px;color:var(--ink-soft);letter-spacing:0.06em;
+  }
+  .job-title{
+    font-family:var(--font-display);
+    font-size:19px;font-weight:600;margin-top:2px;
+  }
+  .job-company{color:var(--teal-deep);font-weight:600;}
+  .job-right{text-align:right;}
+  .job-dates{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-soft);}
+  .resolved-badge{
+    font-family:var(--font-mono);
+    font-size:10.5px;letter-spacing:0.06em;
+    color:var(--teal-deep);
+    background:rgba(31,111,92,0.12);
+    border:1px solid rgba(31,111,92,0.3);
+    padding:3px 8px;border-radius:12px;
+    display:inline-block;margin-top:6px;
+  }
+  .resolved-badge::before{content:"✓ ";}
+
+  .job-notes{padding:18px 22px 22px;}
+  .job-notes ul{list-style:none;}
+  .job-notes li{
+    position:relative;
+    padding-left:20px;
+    margin-bottom:9px;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .job-notes li::before{
+    content:"—";
+    position:absolute;left:0;top:0;
+    color:var(--amber);
+  }
+
+  /* ---------- skills ---------- */
+  .skill-group{margin-bottom:22px;}
+  .skill-group h3{
+    font-family:var(--font-mono);
+    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:12px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:7px 12px;
+    border-radius:5px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    white-space:nowrap;
+    transition:border-color .15s, background .15s;
+  }
+  .chip:hover{border-color:var(--teal);background:rgba(31,111,92,0.06);}
+  .chip.lang{border-color:var(--amber);background:var(--amber-soft);color:var(--ink);}
+
+  /* ---------- education ---------- */
+  .edu-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:20px 22px;
+    margin-bottom:14px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .edu-degree{font-family:var(--font-display);font-weight:600;font-size:17px;}
+  .edu-school{color:var(--ink-soft);font-size:14px;margin-top:2px;}
+  .edu-note{font-size:13px;color:var(--ink-soft);margin-top:6px;}
+  .edu-years{
+    font-family:var(--font-mono);font-size:12px;color:var(--teal-deep);
+    white-space:nowrap;
+  }
+
+  /* ---------- contact / footer ---------- */
+  .contact-ticket{
+    background:var(--teal-deep);
+    color:var(--paper-raised);
+    border-radius:10px;
+    padding:40px 32px;
+    text-align:center;
+  }
+  .contact-ticket .eyebrow{color:rgba(247,250,248,0.65);}
+  .contact-ticket h2{
+    font-family:var(--font-display);
+    font-size:clamp(26px,4vw,36px);
+    font-weight:700;margin-bottom:14px;
+  }
+  .contact-ticket p{color:rgba(247,250,248,0.85);max-width:46ch;margin:0 auto 26px;}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .contact-links a{
+    font-family:var(--font-mono);
+    font-size:13px;
+    background:rgba(247,250,248,0.1);
+    border:1px solid rgba(247,250,248,0.3);
+    padding:10px 18px;border-radius:6px;
+    text-decoration:none;
+    transition:background .15s;
+  }
+  .contact-links a:hover{background:rgba(247,250,248,0.2);}
+
+  footer{
+    text-align:center;
+    padding:28px 0 48px;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:640px){
+    .ticket-meta{grid-template-columns:repeat(2,1fr);}
+    .ticket-meta div:nth-child(2){border-right:none;}
+    .ticket-body{padding:28px 20px 26px;}
+    .job-head{padding:16px 18px;}
+    .job-notes{padding:14px 18px 18px;}
+    .contact-ticket{padding:32px 20px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+    .job-card{opacity:1;transform:none;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--teal-deep);
+    outline-offset:2px;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span> AD / PORTFOLIO.QUEUE</div>
+    <nav>
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <div class="ticket">
+    <div class="ticket-meta">
+      <div><span class="label">Ticket</span>#AD-0001</div>
+      <div><span class="label">Status</span><span class="status-open">Open — Available</span></div>
+      <div><span class="label">Priority</span><span class="priority-high">High</span></div>
+      <div><span class="label">Location</span>West Bengal, India</div>
+    </div>
+    <div class="ticket-body">
+      <div class="eyebrow">Assigned Agent</div>
+      <h1>Anuska Dutta</h1>
+      <p class="role-line"><strong>Process Associate</strong> · Back Office Operations · Customer Service · CRM & Escalation Management</p>
+
+      <div class="summary" id="summary">
+        <span class="field-label">Description</span>
+        Results-driven Process Associate with experience in back office operations, escalation handling, and case management across BPO and service environments. Manages high-volume workloads with accuracy and productivity, ensuring SLA adherence and compliance — skilled in CRM tools, cross-functional collaboration, and omnichannel query resolution. Multilingual in English, Hindi, and Bengali.
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:anuskadutta4975@gmail.com">✉ Email Anuska</a>
+        <a class="btn btn-ghost" href="tel:+919932075742">☎ +91 9932075742</a>
+        <a class="btn btn-ghost" href="resume.pdf" download>⬇ Download Resume</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="perf"></div>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Resolved</span>
+      <h2>Professional Experience</h2>
+    </div>
+
+    <div class="job-card">
+      <div class="job-head">
+        <div>
+          <div class="job-id">TICKET TP-01 · BACK OFFICE OPERATIONS</div>
+          <div class="job-title">Back Office Process Associate — <span class="job-company">Teleperformance</span></div>
+        </div>
+        <div class="job-right">
+          <div class="job-dates">Jul 2025 – Oct 2025</div>
+          <span class="resolved-badge">SLA met</span>
+        </div>
+      </div>
+      <div class="job-notes">
+        <ul>
+          <li>Managed end-to-end back office operations including escalation handling, case query resolution, and issue documentation across omnichannel platforms — Twitter, Instagram, Facebook.</li>
+          <li>Updated and maintained CRM systems with accurate case records, ensuring data integrity and process compliance across all assigned tickets.</li>
+          <li>Collaborated with L1 and L2 cross-functional teams to achieve first-contact resolution and reduce ticket backlog, improving team SLA adherence.</li>
+          <li>Demonstrated strong multi-tasking ability under high-volume work conditions while maintaining accuracy, productivity, and regulatory compliance.</li>
+          <li>Met and exceeded daily and weekly targets for case closure rate, quality scores, and productivity benchmarks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="job-head">
+        <div>
+          <div class="job-id">TICKET FI-02 · CLIENT OPERATIONS</div>
+          <div class="job-title">Development Manager Intern — <span class="job-company">Fortuna Infinite Pvt. Ltd.</span></div>
+        </div>
+        <div class="job-right">
+          <div class="job-dates">May 2024 – Aug 2024</div>
+          <span class="resolved-badge">SLA met</span>
+        </div>
+      </div>
+      <div class="job-notes">
+        <ul>
+          <li>Conducted outbound client calls related to immigration visa processing, delivering accurate product information and procedural guidance.</li>
+          <li>Managed and processed confidential immigration documents, ensuring compliance with data handling protocols and accuracy standards.</li>
+          <li>Maintained detailed records of client interactions and case status using internal documentation systems.</li>
+          <li>Coordinated with internal teams to resolve client queries efficiently and ensured end-to-end process completion within defined timelines.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job-card">
+      <div class="job-head">
+        <div>
+          <div class="job-id">TICKET UA-03 · CLIENT SERVICE</div>
+          <div class="job-title">Tour Advisor — <span class="job-company">Universal Adventures</span></div>
+        </div>
+        <div class="job-right">
+          <div class="job-dates">Sep 2024 – Nov 2024</div>
+          <span class="resolved-badge">SLA met</span>
+        </div>
+      </div>
+      <div class="job-notes">
+        <ul>
+          <li>Delivered consultative service to clients, recommending customized travel packages aligned with client preferences and budget requirements.</li>
+          <li>Consistently achieved and exceeded monthly sales and service targets through effective client engagement and needs analysis.</li>
+          <li>Managed payment processing, booking documentation, and end-to-end coordination to ensure seamless customer experience and transactional accuracy.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="perf"></div>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Tags</span>
+      <h2>Skills & Tools</h2>
+    </div>
+
+    <div class="skill-group">
+      <h3>Process & Operations</h3>
+      <div class="chips">
+        <span class="chip">Process Management</span>
+        <span class="chip">Back Office Operations</span>
+        <span class="chip">Escalation Handling</span>
+        <span class="chip">Case Management</span>
+        <span class="chip">SLA Adherence</span>
+        <span class="chip">Ticket Management</span>
+        <span class="chip">L1/L2 Coordination</span>
+        <span class="chip">Issue Documentation</span>
+        <span class="chip">Workflow Management</span>
+        <span class="chip">Quality Assurance</span>
+        <span class="chip">Compliance & Accuracy</span>
+        <span class="chip">Data Entry & Documentation</span>
+        <span class="chip">Customer Query Resolution</span>
+        <span class="chip">Multi-tasking Under Pressure</span>
+        <span class="chip">Cross-functional Collaboration</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>CRM Tools</h3>
+      <div class="chips">
+        <span class="chip">SRM</span>
+        <span class="chip">Smart Assist</span>
+        <span class="chip">QuickMetrix</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Omnichannel Support</h3>
+      <div class="chips">
+        <span class="chip">Twitter (X)</span>
+        <span class="chip">Facebook</span>
+        <span class="chip">Instagram</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Software</h3>
+      <div class="chips">
+        <span class="chip">MS Word</span>
+        <span class="chip">MS Excel</span>
+        <span class="chip">MS PowerPoint</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="chips">
+        <span class="chip lang">English — Proficient</span>
+        <span class="chip lang">Hindi — Proficient</span>
+        <span class="chip lang">Bengali — Native</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="perf"></div>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-tag">Record</span>
+      <h2>Education</h2>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Bachelor of Arts in Psychology</div>
+        <div class="edu-school">Southern New Hampshire University, Manchester, United States</div>
+        <div class="edu-note">Relevant coursework: Mental Health, Counselling, Humanities</div>
+      </div>
+      <div class="edu-years">2024 – 2027 (Expected)</div>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Intermediate (Class XII)</div>
+        <div class="edu-school">St. Mary's High School, New Cooch Behar, India</div>
+        <div class="edu-note">Score: 80%</div>
+      </div>
+      <div class="edu-years">2020</div>
+    </div>
+  </div>
+</section>
+
+<div class="perf"></div>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-ticket">
+      <div class="eyebrow">Open a new ticket</div>
+      <h2>Let's work together</h2>
+      <p>Available for process, back office, and customer operations roles. Reach out directly — response time is well within SLA.</p>
+      <div class="contact-links">
+        <a href="mailto:anuskadutta4975@gmail.com">anuskadutta4975@gmail.com</a>
+        <a href="tel:+919932075742">+91 99320 75742</a>
+        <a href="resume.pdf" download>Download Resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Anuska Dutta — Ticket closed with care.
+</footer>
+
+</body>
+</html>
